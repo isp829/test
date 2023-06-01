@@ -1,15 +1,1 @@
-name: Issue Closed Notification
-
-# This workflow runs whenever an issue is closed
-on:
-  issues:
-    types: ["closed"]
-
-jobs:
-  post-message:
-    name: Post Celebration Message
-    runs-on : ${{ matrix.os }}
-    steps:
-      - name: Issue Closed Notification
-        uses: mohan-13/issue-closed-notification-action@v1.0.1
 

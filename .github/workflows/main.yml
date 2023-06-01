@@ -1,31 +1,15 @@
-name: Issue Closed Notification
-
-# This workflow runs whenever an issue is closed
-on:
-  issue_comment:                                     
-    types: [created, edited, deleted]
-
-#jobs:
- # post-message:
-  #  name: Post Celebration Message
-   # if: contains(github.event.comment.body, '/support')
-    #runs-on : ubuntu-latest
-    #steps:
-     # - name: Post message
-      #  uses: isp829/issue-closed-notification-action
-       # with:
-        #  discord-webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-
+name: discord message
+on: [push]
 jobs:
-  # The workflow job name
-  discord-notifier:
-    # Name of the enviroment
-    environment: secrets
-    # The type of runner that the job will run on
+
+  build:
+    name: Build
     runs-on: ubuntu-latest
-    # Sequence of tasks
     steps:
-      - name: Discord Notification
-        uses: tenzin1308/discord-notification@v1.0.0
-        with:
-          discord-webhook-url: ${{ secrets.WEBHOOKS_URL }}
+    - uses: actions/checkout@master
+    - name: send custom message with args
+      uses: appleboy/discord-action@master
+      with:
+        webhook_id: ${{ secrets.WEBHOOK_ID }}
+        webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+        args: The ${{ github.event_name }} event triggered first step.

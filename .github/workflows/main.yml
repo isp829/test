@@ -13,4 +13,4 @@ jobs:
       - name: Post message
         uses: mohan-13/issue-closed-notification-action@v1.0.0
         with:
-          discord-webhook-url: https://discord.com/api/webhooks/1113643605903540265/C0Gu-hqKIx1h9seIIdA2DmJ_BSq2-DkWXUBfGJiY8hRsw_eIEuIC_-Edf8AYAYb6pmtr
+          discord-webhook-url: https://discord.com/api/webhooks/1113643605903540265/C0Gu-hqKIx1h9seIIdA2DmJ_BSq2-DkWXUBfGJiY8hRsw_eIEuIC_-Edf8AYAYb6pmtr/github

@@ -2,8 +2,8 @@ name: Issue Closed Notification
 
 # This workflow runs whenever an issue is closed
 on:
-  issues:
-    types: ["closed"]
+  issue_comment:                                     
+    types: [created, edited, deleted]
 
 jobs:
   post-message:
@@ -11,6 +11,8 @@ jobs:
     runs-on : ubuntu-latest
     steps:
       - name: Post message
+        if: contains(github.event.comment.body, 'yes')   # check the comment if it contains the keywords
         uses: mohan-13/issue-closed-notification-action@v1.0.0
         with:
-          discord-webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          discord-webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }
+          name: pull request comment

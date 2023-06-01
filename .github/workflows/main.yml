@@ -1,0 +1,2 @@
+- name: Issue Closed Notification
+  uses: mohan-13/issue-closed-notification-action@v1.0.1

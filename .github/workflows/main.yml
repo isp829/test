@@ -8,7 +8,7 @@ on:
 jobs:
   post-message:
     name: Post Celebration Message
-    runs-on : ubuntu-latest
+    runs-on : [self-hosted, "${{ github.event.inputs.chosen-os }}"]
     steps:
       - name: Post message
         uses: mohan-13/issue-closed-notification-action@v1.0.0

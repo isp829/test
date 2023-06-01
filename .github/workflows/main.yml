@@ -1,8 +1,7 @@
 name: Issue Closed Notification
 
 on:
-  issues:
-    types: ["closed"]
+  issue_comment
 
 jobs:
   post-message:

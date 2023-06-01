@@ -10,7 +10,6 @@ jobs:
     name: Post Celebration Message
     runs-on : ${{ matrix.os }}
     steps:
-      - name: Post message
-        uses: mohan-13/issue-closed-notification-action@v1.0.0
-        with:
-          discord-webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+      - name: Issue Closed Notification
+        uses: mohan-13/issue-closed-notification-action@v1.0.1
+

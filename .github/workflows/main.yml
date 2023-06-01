@@ -1,16 +1,24 @@
-name: Issue Closed Notification
-
-on:
-  issue_comment:
-    types: [created]
+on: issue_comment
 
 jobs:
-  post-message:
-    name: Post Celebration Message
-    runs-on : ubuntu-latest
+  pr_commented:
+    # This job only runs for pull request comments
+    name: PR comment
+    if: ${{ github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
     steps:
-      - name: Issue Closed Notification
-        uses: mohan-13/issue-closed-notification-action@v1.0.1
-        with:
-          discord-webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        
+      - run: |
+          echo A comment on PR $NUMBER
+        env:
+          NUMBER: ${{ github.event.issue.number }}
+
+  issue_commented:
+    # This job only runs for issue comments
+    name: Issue comment
+    if: ${{ !github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo A comment on issue $NUMBER
+        env:
+          NUMBER: ${{ github.event.issue.number }}

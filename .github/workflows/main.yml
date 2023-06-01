@@ -8,7 +8,7 @@ on:
 jobs:
   post-message:
     name: Post Celebration Message
-    runs-on : windows-latest
+    runs-on : ${{ matrix.os }}
     steps:
       - name: Post message
         uses: mohan-13/issue-closed-notification-action@v1.0.0

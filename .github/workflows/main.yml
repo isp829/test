@@ -14,4 +14,3 @@ jobs:
         uses: mohan-13/issue-closed-notification-action@v1.0.0
         with:
           discord-webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          name: pull request comment

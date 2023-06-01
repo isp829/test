@@ -1,9 +1,8 @@
 name: Issue Closed Notification
 
-# This workflow runs whenever an issue is closed
 on:
-  issue_comment:                                     
-    types: [created, edited, deleted]
+  issues:
+    types: ["closed"]
 
 jobs:
   post-message:

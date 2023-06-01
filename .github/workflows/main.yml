@@ -7,11 +7,19 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    if: contains(github.event.comment.body, '/support')  
+    
     steps:
-    - name: Discord notification
+    - name: Discord notification 1
+      if: contains(github.event.comment.body, '/ok')  
       env:
-        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL_1 }}
       uses: Ilshidur/action-discord@master
       with:
-        args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
+        args: '111The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
+    - name: Discord notification 2
+      if: contains(github.event.comment.body, '/support')
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL_2 }}
+      uses: Ilshidur/action-discord@master
+      with:
+        args: '222The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'

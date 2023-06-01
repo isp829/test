@@ -2,8 +2,7 @@ name: Issue Closed Notification
 
 on:
   issue_comment:
-    types:
-      - created
+    types: [created, edited, deleted]
 
 jobs:
   post-message:

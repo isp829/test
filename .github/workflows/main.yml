@@ -81,5 +81,5 @@ jobs:
             contains(github.event.comment.body, '/ok')
       uses: actions-ecosystem/action-remove-labels@v1
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        github-token: ${{ secrets.ACCESS_TOKEN }}
         labels: bug

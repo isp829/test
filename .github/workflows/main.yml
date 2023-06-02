@@ -116,6 +116,8 @@ jobs:
           })
                
     - name: Close Issue
-      run: gh issue close --comment "Auto-closing issue" "1"
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: peter-evans/close-issue@v3
+      with:
+        comment: |
+          Issue title must start with 'ABC-'.
+          Auto-closing this issue.

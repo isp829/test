@@ -12,8 +12,8 @@ jobs:
     - name: Discord notification 1
       if: |
         github.triggering_actor == 'isp829' &&
-          contains(github.event.comment.body, '/ok') &&
-            contains(github.event.comment.body, '/1')
+          (contains(github.event.comment.body, '/ok') ||
+            contains(github.event.comment.body, '/1'))
       env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL_1 }}
       uses: Ilshidur/action-discord@master

@@ -11,14 +11,14 @@ jobs:
     steps:
     - name: Discord notification 1
       if: |
-        contains(github.event.issue.title, 'az')&&
-          github.event.comment.user.login == github.event.issue.assignee.login
-        
+        contains(github.event.issue.title, 'az-900')&&
+          github.event.comment.user.login == github.event.issue.assignee.login&&
+            contains(github.event.comment.body, '/ok')
       env:
-        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL_1 }}
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
       uses: Ilshidur/action-discord@master
       with:
-        args: '111The project {{ EVENT_PAYLOAD.issue.title }} has been deployed.'
+        args: '개쩌는 {{ EVENT_PAYLOAD.issue.user }}님이 애저기초 과정을 통과하셨습니다.'
     - name: Discord notification 2
       if: contains(github.event.comment.body, '/support')
       env:

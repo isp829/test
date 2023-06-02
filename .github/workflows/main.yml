@@ -2,6 +2,12 @@ name: aftercomment
 on:
   issue_comment:
     types: [created]
+    
+permissions:
+  contents: read
+  id-token: write
+  issues: write
+  
 jobs:
 
   build:

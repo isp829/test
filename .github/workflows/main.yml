@@ -101,7 +101,7 @@ jobs:
           contains(github.event.comment.body, '/ok')
       uses: bubkoo/auto-comment@v1
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         issuesOpenedReactions: 'rocket, +1'
         issuesOpened: |
           👉 "축하합니다! 🎉"

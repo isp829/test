@@ -100,22 +100,8 @@ jobs:
         token: ${{secrets.GITHUB_TOKEN}}
         labels: verifyied
         type: add
-        
-    - name: addcomment
-      uses: actions/github-script@v5
-      
-      with:
-        github-token: ${{secrets.GITHUB_TOKEN}}
-        
-        script: |
-          github.rest.issues.createComment({
-            issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: '🚀'
-          })
-               
-    - name: Close Issue
+                 
+    - name: comment and close Issue
       uses: peter-evans/close-issue@v3
       with:
         comment: |

@@ -76,8 +76,11 @@ jobs:
         args: '${{ github.event.issue.user.login }}님이 ms365기초-ms-900과정을 달성하셨습니다.'
         
     - name: removelabel
+      if: |
+        github.event.comment.user.login == github.event.issue.assignee.login&&
+          contains(github.event.comment.body, '/ok')
       uses: buildsville/add-remove-label@v2.0.0
       with:
         token: ${{secrets.ACCESS_TOKEN}}
-        labels: bug
+        labels: verifying
         type: remove

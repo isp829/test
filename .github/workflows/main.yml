@@ -114,12 +114,8 @@ jobs:
             repo: context.repo.repo,
             body: '🚀'
           })
-          
-    - name: close issue
-      if: |
-        github.event.comment.user.login == github.event.issue.assignee.login&&
-          contains(github.event.comment.body, '/ok')
-      uses: peter-evans/close-issue@v3
-      with:
-          issue-number: 1
-          comment: Auto-closing issue
+               
+    - name: Close Issue
+      run: gh issue close --comment "Auto-closing issue" "1"
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

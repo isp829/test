@@ -18,7 +18,7 @@ jobs:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL_1 }}
       uses: Ilshidur/action-discord@master
       with:
-        args: '111The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
+        args: '111The project {{ EVENT_PAYLOAD.issue.title }} has been deployed.'
     - name: Discord notification 2
       if: contains(github.event.comment.body, '/support')
       env:

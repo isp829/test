@@ -11,7 +11,7 @@ jobs:
     steps:
     - name: Discord notification 1
       if: |
-        github.triggering_actor == assignee
+        github.triggering_actor == assignees
           #(contains(github.event.comment.body, '/ok') ||
            # contains(github.event.comment.body, '/1'))
       env:

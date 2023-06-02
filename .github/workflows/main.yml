@@ -105,5 +105,4 @@ jobs:
       uses: peter-evans/close-issue@v3
       with:
         comment: |
-          Issue title must start with 'ABC-'.
-          Auto-closing this issue.
+          축하합니다! 🎉

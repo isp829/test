@@ -19,6 +19,7 @@ jobs:
       uses: Ilshidur/action-discord@master
       with:
         args: '${{ github.event.issue.user.login }}님이 애저기초-az-900과정을 달성하셨습니다.'
+      
     - name: Discord notification 2
       if: |
         contains(github.event.issue.title, 'ai-900')&&
@@ -73,6 +74,11 @@ jobs:
       uses: Ilshidur/action-discord@master
       with:
         args: '${{ github.event.issue.user.login }}님이 ms365기초-ms-900과정을 달성하셨습니다.'
-    - uses: actions-ecosystem/action-remove-labels@v1
+        
+    - name: remove label  
+      if: |
+          github.event.comment.user.login == github.event.issue.assignee.login&&
+            contains(github.event.comment.body, '/ok')
+      uses: actions-ecosystem/action-remove-labels@v1
       with:
         labels: bug

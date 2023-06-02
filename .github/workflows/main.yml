@@ -18,7 +18,7 @@ jobs:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
       uses: Ilshidur/action-discord@master
       with:
-        args: 'This PR is opened by ${{ github.event.pull_request.user.login }}'
+        args: 'This PR is opened by ${{ github.event.issue.user.login }}'
     - name: Discord notification 2
       if: contains(github.event.comment.body, '/support')
       env:

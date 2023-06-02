@@ -10,7 +10,8 @@ jobs:
     
     steps:
     - name: Discord notification 1
-      if: contains(github.event.comment.body, '/ok')  
+      if: issue_comment.user='a'
+      #if: contains(github.event.comment.body, '/ok')  
       env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL_1 }}
       uses: Ilshidur/action-discord@master

@@ -10,8 +10,9 @@ jobs:
     
     steps:
     - name: Discord notification 1
-      if: github.triggering_actor == 'isp829'
-      #if: contains(github.event.comment.body, '/ok')  
+      if: |
+        github.triggering_actor == 'isp829' ||
+          contains(github.event.comment.body, '/ok')  
       env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL_1 }}
       uses: Ilshidur/action-discord@master

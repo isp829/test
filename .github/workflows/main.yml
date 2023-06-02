@@ -11,7 +11,8 @@ jobs:
     steps:
     - name: Discord notification 1
       if: |
-        contains(github.event.issue.title, 'az')
+        contains(github.event.issue.title, 'az')&&
+        github.triggering_actor == 'isp829'
         
       env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL_1 }}

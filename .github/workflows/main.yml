@@ -18,7 +18,7 @@ jobs:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
       uses: Ilshidur/action-discord@master
       with:
-        args: '개쩌는 {{ EVENT_PAYLOAD.issue.user }}님이 애저기초 과정을 통과하셨습니다.'
+        args: '개쩌는 {{ EVENT_PAYLOAD.issues.sender }}님이 애저기초 과정을 통과하셨습니다.'
     - name: Discord notification 2
       if: contains(github.event.comment.body, '/support')
       env:

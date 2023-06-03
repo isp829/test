@@ -21,7 +21,7 @@ jobs:
         url: 'https://github.com/isp829/test.git'
         method: 'POST'
         username: 'isp829'
-        password: ${{ secrets.AWX_PASSWORD }}
+        password: 'Cheapig0829!'
         customHeaders: '{"Content-Type": "application/json"}'
         data: '{"key_1": "value_1", "key_2": "value_2"}'
         

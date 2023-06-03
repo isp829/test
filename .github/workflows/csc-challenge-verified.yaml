@@ -28,6 +28,16 @@ jobs:
         echo "code=$code" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf-8 -Append
         echo "codeUpper=$codeUpper" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf-8 -Append
         echo "isValidCode=$isValidCode" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf-8 -Append
+        
+    - name: Check ok
+      id: ok
+      shell: pwsh
+      run: |
+        $comment = "${{ github.event.comment.body }}"
+        $isValidOk = $($comment.Contains('/ok')).ToString().ToLowerInvariant()
+      
+        echo "comment=$comment" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf-8 -Append
+        echo "isValidOk=$isValidOk" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf-8 -Append
   
     - name: Check assignee
       id: assignee

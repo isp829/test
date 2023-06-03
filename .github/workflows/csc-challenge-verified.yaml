@@ -10,8 +10,8 @@ permissions:
   
 jobs:
 
-  build:
-    name: Build
+  verification-completion:
+    name: Completing verification
     runs-on: ubuntu-latest
     
     steps:

@@ -35,7 +35,7 @@ jobs:
       run: |
         $assignee = "${{ github.event.issue.assignee.login }}"
         $commenter = "${{ github.event.comment.user.login }}"
-        $isValidAssignee = $(($assignee)==($commenter)).ToString().ToLowerInvariant()
+        $isValidAssignee = $(($assignee)=($commenter)).ToString().ToLowerInvariant()
       
         echo "assignee=$assignee" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf-8 -Append
         echo "commenter=$commenter" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf-8 -Append

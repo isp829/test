@@ -29,11 +29,11 @@ jobs:
         echo "codeUpper=$codeUpper" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf-8 -Append
         echo "isValidCode=$isValidCode" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf-8 -Append
   
-    - name: Check challenge code
+    - name: Check assignee
       id: assignee
       shell: pwsh
       run: |
-        $isValidAssignee = $(github.event.comment.user.login == github.event.issue.assignee.login).ToString().ToLowerInvariant()
+        $isValidAssignee = $($(github.event.comment.user.login) == $(github.event.issue.assignee.login)).ToString().ToLowerInvariant()
 
         echo "isValidAssignee=$isValidAssignee" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf-8 -Append
         

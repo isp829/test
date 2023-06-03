@@ -33,8 +33,12 @@ jobs:
       id: assignee
       shell: pwsh
       run: |
-        $isValidAssignee = $($(github.event.comment.user.login) == $(github.event.issue.assignee.login)).ToString().ToLowerInvariant()
-
+        $assignee = "${{ github.event.issue.assignee.login }}"
+        $commenter = "${{ github.event.comment.user.login }}"
+        $isValidAssignee = $($assignee == $commenter).ToString().ToLowerInvariant()
+      
+        echo "assignee=$assignee" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf-8 -Append
+        echo "commenter=$commenter" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf-8 -Append
         echo "isValidAssignee=$isValidAssignee" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf-8 -Append
         
     - name: Discord Message

@@ -15,15 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Deploy Stage
-      uses: fjogeleit/http-request-action@v1
-      with:
-        url: 'https://github.com/isp829/test.git'
-        method: 'POST'
-        username: 'isp829'
-        password: 'Cheapig0829!'
-        customHeaders: '{"Content-Type": "application/json"}'
-        data: '{"key_1": "value_1", "key_2": "value_2"}'
+   
         
     - name: Check challenge code
       id: challenge

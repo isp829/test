@@ -94,7 +94,7 @@ jobs:
         args: '${{ github.event.issue.user.login }}님이 ms365기초-ms-900과정을 달성하셨습니다.'
         
     - name: Discord Message
-      if: ${{ github.event.comment.user.login == github.event.issue.assignee.login && steps.challenge.outputs.isValidCode == 'true' && contains(github.event.comment.body, '/ok' }}
+      if: ${{ github.event.comment.user.login == github.event.issue.assignee.login && steps.challenge.outputs.isValidCode == 'true' && contains(github.event.comment.body, '/ok') }}
       env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
       uses: Ilshidur/action-discord@master

@@ -35,7 +35,7 @@ jobs:
       with:
         url: ${{ secrets.HTTP_REQUEST_URL }}
         method: 'POST'
-        data: '{"Challenge Code": "${{ steps.challenge.outputs.codeUpper }}"}'
+        data: '${{ steps.challenge.outputs.codeUpper }}'
         
     - name: removelabel
       if: |

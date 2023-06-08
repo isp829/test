@@ -35,7 +35,7 @@ jobs:
       with:
         url: ${{ secrets.HTTP_REQUEST_URL }}
         method: 'POST'
-        data: '{"github_id": "${{ github.event.issue.user.login }}", "challenge_code": "${{ steps.challenge.outputs.codeUpper }}"}'
+        data: '{"githubId": "${{ github.event.issue.user.login }}", "challengeCode": "${{ steps.challenge.outputs.codeUpper }}"}'
         
     - name: removelabel
       if: |
